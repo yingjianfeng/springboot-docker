@@ -1,0 +1,24 @@
+参考地址  https://www.cnblogs.com/andrew3/p/13043042.html
+
+
+
+vim /lib/systemd/system/docker.service
+
+在ExecStart最后追加 -H tcp://0.0.0.0:2375 -H unix://var/run/docker.sock
+
+#重新加载配置文件
+systemctl daemon-reload
+#重启docker服务
+systemctl restart docker
+
+
+#curl下载docker的服务信息
+curl http://127.0.0.1:2375/info
+http://服务器IP地址:2375/info
+
+docker插件
+tcp://182.254.166.73:2375
+
+pom配置见文件
+
+开启安全组
